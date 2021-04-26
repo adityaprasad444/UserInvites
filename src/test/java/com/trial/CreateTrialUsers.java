@@ -48,7 +48,7 @@ public class CreateTrialUsers {
 		data.startConnection("test");
 		String DbData=data.getdata("id", "email", "userType", "users", "email", traildata.get("email").toLowerCase());
 		Assert.assertEquals(DbData.contains("trial"), true, "Trial User not crated");
-		String user=DbData.substring(14,38);
+		//String user=DbData.substring(14,38);
 		//data.deleteByObjectID("usercourses", "user", user);
 		//data.deleteWithString("users", "email", traildata.get("email").toLowerCase());
 		data.closeConnection();
