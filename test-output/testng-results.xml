@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="6562" started-at="2021-04-26T15:19:15 IST" finished-at="2021-04-26T15:19:21 IST">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="6562" started-at="2021-04-26T15:19:15 IST" finished-at="2021-04-26T15:19:21 IST">
+      <class name="com.trial.CreateTrialUsers">
+        <test-method status="PASS" signature="CreateValidTrialUser()[pri:1, instance:com.trial.CreateTrialUsers@5faeada1]" name="CreateValidTrialUser" duration-ms="5010" started-at="2021-04-26T15:19:15 IST" finished-at="2021-04-26T15:19:20 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CreateValidTrialUser -->
+        <test-method status="PASS" signature="CreateExistingTrialUser()[pri:2, instance:com.trial.CreateTrialUsers@5faeada1]" name="CreateExistingTrialUser" duration-ms="1324" started-at="2021-04-26T15:19:20 IST" finished-at="2021-04-26T15:19:21 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CreateExistingTrialUser -->
+      </class> <!-- com.trial.CreateTrialUsers -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
