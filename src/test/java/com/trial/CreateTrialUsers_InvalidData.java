@@ -21,7 +21,7 @@ public class CreateTrialUsers_InvalidData {
 	
 	
 	@SuppressWarnings("unchecked")
-	@Test(priority =3)
+	@Test(priority =3, enabled = false)
 	public void InValidUserID_string(){
 		RestAssured.baseURI=ch.testURL();
 		HashMap<String,String> traildata=ExcelRead.readTestData("Trialusers","InValidUserID_string");
@@ -55,7 +55,7 @@ public class CreateTrialUsers_InvalidData {
 	}
 	
 	@SuppressWarnings("unchecked")
-	@Test(priority =4)
+	@Test(priority =4, enabled = false)
 	public void InValidUserID_splchars(){
 		RestAssured.baseURI=ch.testURL();
 		HashMap<String,String> traildata=ExcelRead.readTestData("Trialusers","InValidUserID_splchars");
@@ -89,7 +89,7 @@ public class CreateTrialUsers_InvalidData {
 	}
 	
 	@SuppressWarnings("unchecked")
-	@Test(priority =5)
+	@Test(priority =5, enabled=false)
 	public void Name_splchars(){
 		RestAssured.baseURI=ch.testURL();
 		HashMap<String,String> traildata=ExcelRead.readTestData("Trialusers","Name_splchars");
@@ -187,7 +187,7 @@ public class CreateTrialUsers_InvalidData {
 		String DbData1=data.getdata("id", "email", "status", "userinvitelogs", "email", traildata.get("email").toLowerCase());
 		Assert.assertEquals(DbData1.contains("failed"), true, "Trial user creation failed");
 		String DbData=data.getdata("id", "email", "userType", "users", "email", traildata.get("email").toLowerCase());
-		Assert.assertEquals(DbData.contains("trial"), true, "Trial User not crated");
+		Assert.assertEquals(DbData.contains("trial"), false, "Trial User not crated");
 		String user=DbData.substring(14,38);
 		data.deleteByObjectID("usercourses", "user", user);
 		data.deleteWithString("users", "email", traildata.get("email").toLowerCase());

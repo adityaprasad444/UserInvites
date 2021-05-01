@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" ignored="3" total="7" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="6562" started-at="2021-04-26T15:19:15 IST" finished-at="2021-04-26T15:19:21 IST">
+  <suite name="Suite" duration-ms="11187" started-at="2021-05-01T19:04:50 IST" finished-at="2021-05-01T19:05:01 IST">
     <groups>
     </groups>
-    <test name="Test" duration-ms="6562" started-at="2021-04-26T15:19:15 IST" finished-at="2021-04-26T15:19:21 IST">
+    <test name="Test" duration-ms="11187" started-at="2021-05-01T19:04:50 IST" finished-at="2021-05-01T19:05:01 IST">
       <class name="com.trial.CreateTrialUsers">
-        <test-method status="PASS" signature="CreateValidTrialUser()[pri:1, instance:com.trial.CreateTrialUsers@5faeada1]" name="CreateValidTrialUser" duration-ms="5010" started-at="2021-04-26T15:19:15 IST" finished-at="2021-04-26T15:19:20 IST">
+        <test-method status="PASS" signature="CreateValidTrialUser()[pri:1, instance:com.trial.CreateTrialUsers@23faf8f2]" name="CreateValidTrialUser" duration-ms="5527" started-at="2021-05-01T19:04:50 IST" finished-at="2021-05-01T19:04:56 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CreateValidTrialUser -->
-        <test-method status="PASS" signature="CreateExistingTrialUser()[pri:2, instance:com.trial.CreateTrialUsers@5faeada1]" name="CreateExistingTrialUser" duration-ms="1324" started-at="2021-04-26T15:19:20 IST" finished-at="2021-04-26T15:19:21 IST">
+        <test-method status="PASS" signature="CreateExistingTrialUser()[pri:2, instance:com.trial.CreateTrialUsers@23faf8f2]" name="CreateExistingTrialUser" duration-ms="1513" started-at="2021-05-01T19:04:56 IST" finished-at="2021-05-01T19:04:57 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CreateExistingTrialUser -->
       </class> <!-- com.trial.CreateTrialUsers -->
+      <class name="com.trial.CreateTrialUsers_InvalidData">
+        <test-method status="PASS" signature="Email_blank()[pri:6, instance:com.trial.CreateTrialUsers_InvalidData@2d6eabae]" name="Email_blank" duration-ms="1239" started-at="2021-05-01T19:04:57 IST" finished-at="2021-05-01T19:04:59 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Email_blank -->
+        <test-method status="PASS" signature="Email_invalid()[pri:6, instance:com.trial.CreateTrialUsers_InvalidData@2d6eabae]" name="Email_invalid" duration-ms="2860" started-at="2021-05-01T19:04:59 IST" finished-at="2021-05-01T19:05:01 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Email_invalid -->
+      </class> <!-- com.trial.CreateTrialUsers_InvalidData -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>
