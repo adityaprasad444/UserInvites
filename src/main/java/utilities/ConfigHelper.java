@@ -1,7 +1,4 @@
-package helpers;
-
-import utilities.PropertiesRead;
-
+package utilities;
 
 public class ConfigHelper {
 
