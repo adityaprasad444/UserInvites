@@ -7,18 +7,17 @@ import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import helpers.ConfigHelper;
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import utilities.ConfigHelper;
 import utilities.DBHelper;
 import utilities.ExcelRead;
 
 public class CreateTrialUsers_InvalidData {
 	public ConfigHelper ch=new ConfigHelper();
 	public DBHelper data= new DBHelper();
-	
 	
 	@SuppressWarnings("unchecked")
 	@Test(priority =3, enabled = false)
