@@ -20,35 +20,33 @@ public class CreateOrder {
 
 	public ConfigHelper ch=new ConfigHelper();
 	public DBHelper data= new DBHelper();
-	
+
 	@SuppressWarnings("unchecked")
 	@Test
 	public void createOrder() {
 		RestAssured.baseURI=ch.testURL();
 		RequestSpecification request=RestAssured.given();
 		JSONObject authparam = new JSONObject();
-		JSONObject participants= new JSONObject();
-		JSONArray authArray = new JSONArray();
-		JSONObject requestParams = new JSONObject();
-		
-		requestParams.put("orderCode",RandomHelper.getDateAndTime());
-		requestParams.put("orderStatus", "received");
-		requestParams.put("orderType","corporate");
-		requestParams.put("website","knowledgehut");
-		requestParams.put("userId",RandomHelper.getRandomNumber());
-		requestParams.put("firstName",RandomHelper.getTodayDate());
-		requestParams.put("lastName",RandomHelper.getTodayDate());
-		requestParams.put("email",RandomHelper.getDateAndTime()+"@mailinator.com");
-		requestParams.put("mobile","9999999999");
-		requestParams.put("countryId",4);
-		requestParams.put("cityId",15);
-		requestParams.put("state","karnataka");
-		requestParams.put("regionId",6);
-		requestParams.put("timezone","Asia/Calcutta");
+		JSONObject orderDetails = new JSONObject();
+
+		orderDetails.put("orderCode",RandomHelper.getDateAndTime());
+		orderDetails.put("orderStatus", "received");
+		orderDetails.put("orderType","corporate");
+		orderDetails.put("website","knowledgehut");
+		orderDetails.put("userId",RandomHelper.getRandomNumber());
+		orderDetails.put("firstName",RandomHelper.getTodayDate());
+		orderDetails.put("lastName",RandomHelper.getTodayDate());
+		orderDetails.put("email",RandomHelper.getDateAndTime()+"@mailinator.com");
+		orderDetails.put("mobile","9999999999");
+		orderDetails.put("countryId",4);
+		orderDetails.put("cityId",15);
+		orderDetails.put("state","karnataka");
+		orderDetails.put("regionId",6);
+		orderDetails.put("timezone","Asia/Calcutta");
 			authparam.put("wsmCourse","208");
 			authparam.put("deliveryType", 3);
-		requestParams.put("course",authparam);
-		
+		orderDetails.put("course",authparam);
+
 		ObjectMapper objectMapper = new ObjectMapper();
 		ArrayNode parentArray =  objectMapper.createArrayNode();
 		ObjectNode participants1 = objectMapper.createObjectNode();
@@ -60,18 +58,20 @@ public class CreateOrder {
 			participants2.put("userId",RandomHelper.getRandomNumber());
 			participants2.put("firstName",RandomHelper.getDateAndTime());
 			participants2.put("lastName",RandomHelper.getDateAndTime());
-			try {
-				Thread.sleep(10000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			participants2.put("email",RandomHelper.getDateAndTime()+"@mailinator.com");
+			participants2.put("email",RandomHelper.getDateAndTime()+"@yopmail.com");
+		ObjectNode participants3 = objectMapper.createObjectNode();
+			participants3.put("userId",RandomHelper.getRandomNumber());
+			participants3.put("firstName",RandomHelper.getDateAndTime());
+			participants3.put("lastName",RandomHelper.getDateAndTime());
+			participants3.put("email",RandomHelper.getRandomNumber()+RandomHelper.getDateAndTime()+"@mailinator.com");	
 		parentArray.add(participants1);
-		parentArray.add(participants2);	
-		requestParams.put("participants",parentArray);
+		parentArray.add(participants2);
+		parentArray.add(participants3);
+
+		orderDetails.put("participants",parentArray);
 		request.header("Content-Type", "application/json");
-		request.body(requestParams.toJSONString().toString());
-		System.out.println(requestParams.toJSONString());
+		request.body(orderDetails.toJSONString().toString());
+		System.out.println(orderDetails.toJSONString());
 		Response res=request.request(Method.POST, "/create");
 	}
 }

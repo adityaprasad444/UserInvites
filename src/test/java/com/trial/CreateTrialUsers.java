@@ -19,8 +19,8 @@ public class CreateTrialUsers {
 
 	public ConfigHelper ch=new ConfigHelper();
 	public DBHelper data= new DBHelper();
-	public String date= RandomHelper.getDateAndTime();
-	public String email=date+"@mailinator.com";
+	//public String date= RandomHelper.getDateAndTime();
+	public String email=RandomHelper.getDateAndTime()+"@mailinator.com";
 	
 	@SuppressWarnings("unchecked")
 	@Test(priority =1)
@@ -43,7 +43,7 @@ public class CreateTrialUsers {
 		requestParams.put("course",authparam);
 		request.header("Content-Type", "application/json");
 		request.body(requestParams.toJSONString().toString());
-		System.out.println(requestParams.toJSONString());
+		System.out.println(requestParams);
 		Response res=request.request(Method.POST, "/trialAccess");
 		int statusCode=res.getStatusCode();
 		Assert.assertEquals(statusCode, 204, "Trial Access Not Success");

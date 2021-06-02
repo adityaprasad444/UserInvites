@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="8045" started-at="2021-05-12T14:05:22 IST" finished-at="2021-05-12T14:05:30 IST">
+  <suite name="Default suite" duration-ms="12291" started-at="2021-05-25T10:55:38 IST" finished-at="2021-05-25T10:55:50 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="8045" started-at="2021-05-12T14:05:22 IST" finished-at="2021-05-12T14:05:30 IST">
-      <class name="com.trial.CreateTrialUsers">
-        <test-method status="PASS" signature="CreateValidTrialUser()[pri:1, instance:com.trial.CreateTrialUsers@1f7030a6]" name="CreateValidTrialUser" duration-ms="6650" started-at="2021-05-12T14:05:22 IST" finished-at="2021-05-12T14:05:29 IST">
+    <test name="Default test" duration-ms="12291" started-at="2021-05-25T10:55:38 IST" finished-at="2021-05-25T10:55:50 IST">
+      <class name="com.userinvite.CreateOrder">
+        <test-method status="PASS" signature="createOrder()[pri:0, instance:com.userinvite.CreateOrder@4d41cee]" name="createOrder" duration-ms="12231" started-at="2021-05-25T10:55:38 IST" finished-at="2021-05-25T10:55:50 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CreateValidTrialUser -->
-        <test-method status="PASS" signature="CreateExistingTrialUser()[pri:2, instance:com.trial.CreateTrialUsers@1f7030a6]" name="CreateExistingTrialUser" duration-ms="1360" started-at="2021-05-12T14:05:29 IST" finished-at="2021-05-12T14:05:30 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CreateExistingTrialUser -->
-      </class> <!-- com.trial.CreateTrialUsers -->
+        </test-method> <!-- createOrder -->
+      </class> <!-- com.userinvite.CreateOrder -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
