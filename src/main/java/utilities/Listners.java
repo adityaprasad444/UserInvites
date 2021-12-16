@@ -1,6 +1,5 @@
 package utilities;
 
-import org.apache.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -14,12 +13,11 @@ public class Listners implements ITestListener {
 
 	ExtentReports reports;
 	ExtentTest test;
-	Logger log = Logger.getLogger(Listners.class);
 	
 	@Override
 	public void onStart(ITestContext context) {
 		reports = new ExtentReports();
-		ExtentSparkReporter spark = new ExtentSparkReporter("target/Spark.html");
+		ExtentSparkReporter spark = new ExtentSparkReporter("Report.html");
 		reports.attachReporter(spark);
 		reports.setSystemInfo("OS", "Windows 10 pro");
 		reports.setSystemInfo("Environment", "Test (QA)");
@@ -34,7 +32,7 @@ public class Listners implements ITestListener {
 	
 	@Override
 	public void onTestStart(ITestResult result) {
-		log.info(result.getMethod().getMethodName());
+		
 		test = reports.createTest(result.getMethod().getMethodName());
 		test.log(Status.INFO, result.getMethod().getMethodName() + "Test is started");
 	}
