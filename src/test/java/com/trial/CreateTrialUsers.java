@@ -47,12 +47,15 @@ public class CreateTrialUsers {
 		Response res=request.request(Method.POST, "/trialAccess");
 		int statusCode=res.getStatusCode();
 		Assert.assertEquals(statusCode, 204, "Trial Access Not Success");
-		data.startConnection("test");
-		String DbData=data.getdata("id", "email", "userType", "users", "email", email.toLowerCase());
+		data.startConnection();
+		String DbData=data.getdata("roles", "email", "userType", "users", "email", email.toLowerCase());
+		System.out.println(DbData);
 		Assert.assertEquals(DbData.contains("trial"), true, "Trial User not crated");
-		//String user=DbData.substring(14,38);
-		//data.deleteByObjectID("usercourses", "user", user);
-		//data.deleteWithString("users", "email", traildata.get("email").toLowerCase());
+		Assert.assertEquals(DbData.contains("role=5dc3f2eff4559a99d678a857"), true, "Learner Role Validated");
+		Assert.assertEquals(DbData.contains("isDefaultRole=true, status=active"), true, "Default & Active role Validated");
+//		String user=DbData.substring(14,38);
+//		data.deleteByObjectID("usercourses", "user", user);
+//		data.deleteWithString("users", "email", traildata.get("email").toLowerCase());
 		data.closeConnection();
 	}
 	
@@ -81,10 +84,10 @@ public class CreateTrialUsers {
 		Response res=request.request(Method.POST, "/trialAccess");
 		int statusCode=res.getStatusCode();
 		Assert.assertEquals(statusCode, 204, "Trial Access Not Success");
-		data.startConnection("test");
+		data.startConnection();
 		String DbData=data.getdata("id", "email", "status", "userinvitelogs", "email", email.toLowerCase());
 		Assert.assertEquals(DbData.contains("failed"), true, "Trial User already exists for same course");
-		String user=DbData.substring(14,38);
+		//String user=DbData.substring(14,38);
 		//data.deleteByObjectID("usercourses", "user", user);
 		//data.deleteWithString("users", "email", email.toLowerCase());
 		data.closeConnection();

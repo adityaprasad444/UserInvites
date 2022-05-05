@@ -1,27 +1,24 @@
 package utilities;
 
-import java.util.Arrays;
-
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
 import com.mongodb.Block;
 import com.mongodb.MongoClient;
-import com.mongodb.MongoCredential;
-import com.mongodb.ServerAddress;
+import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Sorts;
 
 public class DBHelper {
-	
+
 	public PropertiesRead pr;
 	public DBHelper() {
-	
+
 		pr=new PropertiesRead("/src/main/resources/Properties/DB.Properties");
 	}
-	
+
 	public String host() {
 		return pr.getProperty("host");
 	}
@@ -43,28 +40,18 @@ public class DBHelper {
 	public String stagepassword() {
 		return pr.getProperty("stagepassword");
 	}
-		
+
 	String doc="";
 	MongoClient mongoClient;
 	MongoDatabase db;
 
-	public void startConnection(String dbname) {
-		
-		if(dbname.equalsIgnoreCase("test")) {
-		MongoCredential credential = MongoCredential.createScramSha1Credential(testuser(),testDB(),testpassword().toCharArray());
-		mongoClient = new MongoClient(new ServerAddress(host(), 27017),Arrays.asList(credential));
-		db = mongoClient.getDatabase(testDB());
-		System.out.println("Database connection created : "+ testDB() );
-		}
-		else if(dbname.equalsIgnoreCase("stage")) {
-			MongoCredential credential = MongoCredential.createScramSha1Credential(stageuser(),stageDB(),stagepassword().toCharArray());
-			mongoClient = new MongoClient(new ServerAddress(host(), 27017),Arrays.asList(credential));
-			db = mongoClient.getDatabase(stageDB());
-			System.out.println("Database connection created : "+ stageDB() );
-		}	
-		
+	public void startConnection() {
+		MongoClientURI uri = new 
+			 MongoClientURI("mongodb+srv://prismdevadmin:Y8aembJFy8yqaOsT@prismdev.qkhpp.mongodb.net/test?w=majority");
+			 mongoClient = new MongoClient(uri);
+			 db = mongoClient.getDatabase("iratest");
+			System.out.println("Database connection created : "+ testDB());		
 	}
-
 
 	public void closeConnection() {
 		mongoClient.close();
@@ -83,7 +70,6 @@ public class DBHelper {
 		System.out.println("Delete Success from " +table +" for " +key +" with " +value);
 	}
 
-
 	public String getdata(String field1, String field2, String field3, String table,String key, String Value ) {
 		MongoCollection<Document> collection = db.getCollection(table);
 		Document query = new Document();
@@ -101,7 +87,7 @@ public class DBHelper {
 			}
 		};
 		collection.find(query).projection(projection).sort(Sorts.ascending("createdAt")).forEach(processBlock);
-		System.out.println("data base get query success");
+		System.out.println("Data base Get Query Success");
 		return doc;
 	} 
 }
