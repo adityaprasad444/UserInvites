@@ -10,8 +10,7 @@ public class ConfigHelper {
 		pr=new PropertiesRead("/src/main/resources/Properties/General.Properties");
 	}
 
-	public String testURL() {
-		
+	public String testURL() {	
 		return pr.getProperty("testurl");
 	}
 	
